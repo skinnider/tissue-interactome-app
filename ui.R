@@ -23,7 +23,8 @@ ui = navbarPage("Mouse tissue interactome explorer",
                         choices = gene_names,
                         multiple = T,
                         selected = 'Psma1', # default
-                        options = list(maxOptions = 10))
+                        options = list(maxOptions = 10)),
+                      downloadButton("download_gene", "Download data")
                     ),
                     mainPanel(
                       plotOutput("genename_plot", height = "500px")
@@ -43,11 +44,19 @@ ui = navbarPage("Mouse tissue interactome explorer",
                         choices = uniprot_ids,
                         multiple = T,
                         selected = 'Q9R1P4', # default
-                        options = list(maxOptions = 10))
+                        options = list(maxOptions = 10)),
+                      downloadButton("download_protein", "Download data")
                     ),
                     mainPanel(
                       plotOutput("protein_plot", height = "500px")
                     )
+                  )
+                ),
+                tabPanel(
+                  "About",
+                  fluidRow(
+                    shinydashboard::box(width = 6, 
+                                        includeMarkdown("About.md"))
                   )
                 )
 )
