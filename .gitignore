@@ -15,3 +15,5 @@
 # Python
 *.pyc
 .idea
+
+rsconnect
